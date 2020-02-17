@@ -1,15 +1,25 @@
-import React from 'react';
-import {NavLink} from 'react-router-dom';
+import React, {useReducer} from 'react';
+import Hamburger from './Hamburger';
+import NavMenu from './NavMenu';
+import reducer from './reducers'
+import './Navbar.scss';
+
+export const NavbarContext = React.createContext();
+
+const initialState = {
+  menuOpen: false
+}
 
 const Navbar = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
   return (
-    <nav>
-      <ul>
-        <NavLink to='/'>About Me</NavLink>
-        <NavLink to='/projects'>Projects</NavLink>
-        <NavLink to='/contact'>Contact</NavLink>
-      </ul>
-    </nav>
+    <NavbarContext.Provider value={{state, dispatch}}>
+      <section className='navBar'>
+        <Hamburger />
+        <NavMenu />
+      </section>
+    </NavbarContext.Provider>
   );
 }
 

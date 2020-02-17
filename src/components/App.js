@@ -1,5 +1,5 @@
 import {hot} from 'react-hot-loader';
-import React from 'react';
+import React, {createContext} from 'react';
 import {Switch, Route} from 'react-router-dom';
 import Navbar from './Navbar/Navbar';
 import AboutMe from './AboutMe/AboutMe';
@@ -9,11 +9,14 @@ import Footer from './Footer/Footer';
 import './App.scss'
 
 function App(){
+
   return (
     <>
       <Navbar />
       <Switch>
-        <Route exact path='/' component={AboutMe} />
+        <Route exact
+               path='/'
+               component={AboutMe} />
         <Route path='/projects' component={Projects} />
         <Route path='/contact' component={Contact} />
       </Switch>
