@@ -1,4 +1,4 @@
-@mixin menuToggle($topOffset, $opacity) {
+@mixin menuToggle($topOffset) {
   position: absolute;
   top: $topOffset;
   left: 50%;
@@ -7,19 +7,24 @@
   transition: all 0.3s ease-in-out;
   background-color: darkslategray;
   color:white;
-  border-radius: 0 0 10px 10px;
+  border-radius: 0 0 20px 20px;
 }
 
 .menu{
-  @include menuToggle(0px, 1);
+  @include menuToggle(0px);
 }
-.menu--hidden{
-  @include menuToggle(-15%, 0.3);
+.menu_hidden{
+  @include menuToggle(-15%);
 }
 .menu__link{
   display: block;
   font-size: 1.5em;
   padding: 0.2em 0;
   text-align: center;
-  color: white
+  color: white;
+  border-radius: 10px;
+}
+.menu__link_active{
+  @extend .menu__link;
+  background-color: black;
 }

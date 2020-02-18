@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {NavbarContext} from './Navbar';
+import {NavbarContext} from '../Navbar';
 import './Hamburger.scss';
 
 const Hamburger = () => {
@@ -8,11 +8,9 @@ const Hamburger = () => {
     dispatch({type: 'MENU_TOGGLE', data: newValue})
   }
 
-  const hamburgerClass = state.menuOpen ? ' is-active' : '';
-
   return (
     <button onClick={() => menuOpen(!state.menuOpen)} 
-            className={`hamburger hamburger--elastic${hamburgerClass}`} 
+            className={`hamburger hamburger--elastic${state.menuOpen ? ' is-active' : ''}`} 
             type='button'>
       <span className='hamburger-box'>
         <span className='hamburger-inner'></span>
