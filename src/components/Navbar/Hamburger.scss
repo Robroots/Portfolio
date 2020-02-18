@@ -1,6 +1,8 @@
 .hamburger {
+  position: absolute;
+  z-index: 20;
   padding: 15px 15px;
-  display: inline-block;
+  outline: none;
   cursor: pointer;
   transition-property: opacity, filter;
   transition-duration: 0.15s;
@@ -19,7 +21,7 @@
   .hamburger.is-active .hamburger-inner,
   .hamburger.is-active .hamburger-inner::before,
   .hamburger.is-active .hamburger-inner::after {
-    background-color: #000; }
+    background-color: gainsboro; }
 
 .hamburger-box {
   width: 40px;

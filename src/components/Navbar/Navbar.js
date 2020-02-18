@@ -5,7 +5,6 @@ import reducer from './reducers'
 import './Navbar.scss';
 
 export const NavbarContext = React.createContext();
-
 const initialState = {
   menuOpen: false
 }
@@ -14,8 +13,8 @@ const Navbar = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <NavbarContext.Provider value={{state, dispatch}}>
-      <section className='navBar'>
+    <NavbarContext.Provider value={{ state, dispatch }}>
+      <section className='navbar'>
         <Hamburger />
         <NavMenu />
       </section>

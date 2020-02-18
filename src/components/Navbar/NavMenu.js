@@ -4,14 +4,38 @@ import {NavLink} from 'react-router-dom';
 import './NavMenu.scss';
 
 const NavMenu = () => {
-  const {state} = useContext(NavbarContext)
+  const {state, dispatch} = useContext(NavbarContext);
+  const menuOpen = (newValue) => {
+    dispatch({type: 'MENU_TOGGLE', data: newValue})
+  }
+
+  const menuIsVisible = state.menuOpen ? 'menu' : 'menu--hidden';
+  const navLinks = [
+    {
+      text: 'About Me',
+      path: '/'
+    },
+    {
+      text: 'Projects',
+      path: '/projects'
+    },
+    {
+      text: 'Contact',
+      path: '/contact'
+    }
+  ]
 
   return (
-    <nav id='menu' style={{display: !state.menuOpen && 'none' }}>
-      <ul>
-        <NavLink to='/' className='navLink' activeClassName='navLink_active'>About Me</NavLink>
-        <NavLink to='/projects' className='navLink' activeClassName='navLink_active'>Projects</NavLink>
-        <NavLink to='/contact' className='navLink' activeClassName='navLink_active'>Contact</NavLink>
+    <nav className={menuIsVisible}>
+      <ul className='menu__list'>
+        {navLinks.map(link => 
+          <NavLink key={link.path}
+                   to={link.path}
+                   className='menu__link'
+                   onClick={()=> menuOpen(!state.menuOpen)}
+          >{link.text}
+          </NavLink>
+        )}
       </ul>
     </nav>
   );

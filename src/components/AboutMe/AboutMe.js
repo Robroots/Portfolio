@@ -1,8 +1,11 @@
 import React from 'react';
+import './AboutMe.scss'
 
 const AboutMe = () => {
   return (
-    <h1>About Me</h1>
+    <section className='subpage'>
+      <h1>About Me</h1>
+    </section>
   );
 }
 

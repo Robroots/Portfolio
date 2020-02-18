@@ -1,8 +1,11 @@
 import React from 'react';
+import './Project.scss'
 
 const Projects = () => {
   return (
-    <h1>Projects</h1>
+    <section className='subpage'>
+      <h1>Projects</h1>
+    </section>
   );
 }
 
