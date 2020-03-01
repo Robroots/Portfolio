@@ -10,11 +10,13 @@ export const NavbarContext = React.createContext();
 const Navbar = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  const {navLinks, menuOpen} = state
+
   return (
-    <NavbarContext.Provider value={{ state, dispatch }}>
+    <NavbarContext.Provider value={{ dispatch }}>
       <section className='navbar'>
-        <Hamburger />
-        <NavMenu />
+        <Hamburger menuOpen={menuOpen}/>
+        <NavMenu menuOpen={menuOpen} navLinks={navLinks}/>
       </section>
     </NavbarContext.Provider>
   );
